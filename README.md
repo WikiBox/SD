@@ -5,7 +5,7 @@ sd is a C++ class implementing a compressed string dictionary. The class provide
 extract using front coding compression. Front coding compression means that common prefixes are compressed. This makes this string dictionary suitable for compact storage and fast access to a huge amount of strings like URL:s or file paths. Using sd it may be possible to hold a complete dictionary in RAM instead of having to use slower disk-based storage.
 
 Note: 
-* Strings must be added in strict ascending lexicographic order. 
+* Strings should be added in strict ascending lexicographic order. Otherwise compression will be poor and locate won't work. 
 * Strings are stored as raw bytes, but '\0' cant't be used in a string because that char is used as string terminator inside the data structure.
 * BUCKET_SIZE may be changed to shift the trade-off between compression level and speed of access. Big BUCKET_SIZE means higher compression but slower access. Sane values are between 16 and 2048.
  
